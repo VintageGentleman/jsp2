@@ -30,7 +30,10 @@ public class ForwardServlet extends HttpServlet {
 					name, type,
 					total_price = (Integer.parseInt(price) * Integer.parseInt(qty)));
 		} else {
-			System.out.printf("%s(%s) / undefined\n", name, type);
+			// 하나라도 null값이 존재하면 정상적인 접근이 아니므로
+			// 다시 index.jsp로 요청하라고 응답을 보낼 수 있다
+			resp.sendRedirect("/chap03/forward/index.jsp");
+			return;
 		}
 		
 		// 처리 후 얻어낸 결과를 다음 서블릿까지 전달하고 싶을 때는
