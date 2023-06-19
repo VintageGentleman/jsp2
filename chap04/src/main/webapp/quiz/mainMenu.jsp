@@ -21,7 +21,7 @@
 	</div>
 	
 	<div>
-		<form action="./BoardServlet">
+		<form action="./board">
 			<input type="text" name="content"/>
 			<input type="submit" value="ют╥б" />
 		</form>

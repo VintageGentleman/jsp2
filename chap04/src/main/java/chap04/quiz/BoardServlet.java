@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-@WebServlet("./quiz/BoardServlet")
+@WebServlet("./quiz/board")
 public class BoardServlet extends HttpServlet {
 	private static final long serialVersionUID = -4686684145261559772L;
 
