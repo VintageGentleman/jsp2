@@ -5,13 +5,17 @@
 <head>
 	<meta charset="EUC-KR">
 	<title>회원가입 결과</title>
+	<link rel="stylesheet" href="./css/result.css">
 </head>
 <body>
-	<div>
-		회원가입에 성공했습니다. <br>
-		로그인해주세요.
+	<div id="quiz">
+		<div>
+			회원가입에 성공했습니다. <br>
+			로그인해주세요.
+		</div>
+		<div></div>
+		<button class="btn" onclick="confirm()">확인</button>
 	</div>
-	<button id="confirm" onclick="confirm()">확인</button>
 	<script src="./function.js"></script>
 </body>
 </html>

@@ -5,26 +5,38 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="EUC-KR">
+	<meta charset="EUC-KR">
 	<title>메모장</title>
-	</head>
+	<link rel="stylesheet" href="./css/mainMenu.css">
+</head>
 <body>
-	<div id="board">
-	<%
-		HashMap<String, ArrayList<String>> users = (HashMap<String, ArrayList<String>>)application.getAttribute("board"); 
-		ArrayList<String> posts = users.get(session.getAttribute("ID"));
-	
-		for(String post : posts) {
-			out.print("<div>" + post + "</div>"); 
-		}
-	%>
-	</div>
-	
-	<div>
+	<div id="insert">
 		<form action="./board">
-			<input type="text" name="content"/>
+			<input type="text" name="content" placeholder="메모 입력..."/>
 			<input type="submit" value="입력" />
 		</form>
+		<button onclick="logout()">나가기</button>
 	</div>
+	
+	<div id="board">
+		<div class="post">
+			<div>번호</div>
+			<div>메모 내용</div>
+		</div>
+		<%
+			@SuppressWarnings("unchecked")
+			HashMap<String, ArrayList<String>> users = (HashMap<String, ArrayList<String>>)application.getAttribute("board"); 
+			ArrayList<String> posts = users.get(session.getAttribute("ID"));
+			
+			int index = 0;
+			for(String post : posts) {
+				out.print("<div class=\"post\">"
+							+ "<div>" + index++ + "</div>"
+							+ "<div>" + post + "</div>"
+						+ "</div>");
+			}
+		%>
+	</div>
+	<script src="./function.js"></script>
 </body>
 </html>

@@ -7,6 +7,7 @@
 <head>
 	<meta charset="EUC-KR">
 	<title>Quiz</title>
+	<link rel="stylesheet" href="./css/index.css">
 </head>
 <body>
 	
@@ -33,12 +34,18 @@
 	
 	<h3>Quiz</h3>
 	
-	<form action="./login" method="POST">
-		ID: <input type="text" name="ID" /> <br>
-		PW: <input type="text" name="PW" /> <br>
-		<input type="submit" value="로그인">
-	</form>
-	<button id="regist" onclick="regist()">회원가입</button>
+	
+	<form action="./login" id="form" method="POST"></form>
+	<div id="quiz">
+		<div id="login">
+			<input form="form" type="text" name="ID" placeholder="아이디 입력" />
+			<input form="form" type="password" name="PW" placeholder="비밀번호 입력" />
+		</div>
+		<div></div>
+		<input id="loginBtn" form="form" type="submit" value="로그인">
+		<button id="regist" onclick="regist()">회원가입</button>
+	</div>
+	
 	<script src="./function.js"></script>
 </body>
 </html>

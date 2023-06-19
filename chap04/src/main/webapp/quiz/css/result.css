@@ -1,0 +1,39 @@
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@700&display=swap');
+
+* {
+    box-sizing: border-box;
+}
+
+#quiz {
+    width: 500px;
+    height: 300px;
+    border: 1px solid gray;
+    border-radius: 10px;
+    padding: 50px;
+    font-family: 'Nanum Gothic', sans-serif;
+}
+
+#quiz > div:first-child {
+    height: 100px;
+    width: 400px;
+    text-align: center;
+    font-size: 35px;
+    white-space: nowrap;
+}
+
+#quiz > div:nth-child(2) {
+    height: 30px;
+}
+
+.btn {
+    height: 50px;
+    width: 400px;
+    border-radius: 10px;
+    text-align: center;
+    font-size: 25px;
+    font-weight: bold;
+    color: white;
+    background-color: rgb(3,199,90);
+    border: 1px solid rgb(3,193,87);
+}
+

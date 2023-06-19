@@ -1,6 +1,7 @@
 package chap04.quiz;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
@@ -31,12 +32,21 @@ public class LoginServlet extends HttpServlet {
 		HttpSession session = req.getSession();
 		
 		if(isValid) {
-			session.setAttribute(id, pw);
+			session.setAttribute("ID", id);
+			session.setAttribute("PW", pw);
 			resp.sendRedirect("/chap04/quiz/mainMenu.jsp");
 			return;
 		}
 		
-		resp.sendRedirect("/chap04/quiz/index.jsp");
+		resp.setCharacterEncoding("UTF-8");
+		resp.setContentType("text/html; charset=UTF-8");
+		
+		PrintWriter out = resp.getWriter();
+		out.println("<script>"
+				+ "alert('아이디 또는 비밀번호를 잘못 입력했습니다.');"
+				+ "location.href = '/chap04/quiz/index.jsp';"
+				+ "</script>"); 
+		out.close();
 	}
 
 }

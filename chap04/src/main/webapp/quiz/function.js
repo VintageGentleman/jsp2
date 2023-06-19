@@ -11,3 +11,6 @@ function failed() {
 	location.href = './regist.jsp';
 }
 
+function logout() {
+	location.href = './logout';
+}

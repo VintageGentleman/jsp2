@@ -1,0 +1,60 @@
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@700&display=swap');
+
+* {
+    box-sizing: border-box;
+}
+
+#quiz {
+    width: 500px;
+    height: 350px;
+    border: 1px solid gray;
+    border-radius: 10px;
+    padding: 50px;
+    font-family: 'Nanum Gothic', sans-serif;
+}
+
+#login {
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+    border: 1px gray solid;
+    border-collapse: collapse;
+    overflow: hidden;
+    height: 100px;
+    width: 400px;
+}
+#login > :first-child,
+#login > :last-child {
+    height: 50%;
+    width: 100%;
+}
+
+#quiz > div:nth-child(2) {
+    height: 50px;
+}
+
+#loginBtn {
+    height: 50px;
+    width: 400px;
+    text-align: center;
+    font-size: 25px;
+    font-weight: bold;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    color: white;
+    background-color: rgb(3,199,90);
+    border: 1px solid rgb(3,193,87);
+}
+
+#regist {
+    height: 50px;
+    width: 400px;
+    border-radius: 10px;
+    text-align: center;
+    font-size: 25px;
+    font-weight: bold;
+    color: white;
+    background-color: rgb(3,199,90);
+    border: 1px solid rgb(3,193,87);
+}
+

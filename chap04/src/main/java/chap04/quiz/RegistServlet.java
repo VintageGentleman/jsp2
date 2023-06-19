@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Enumeration;
 import java.util.HashMap;
+import java.util.regex.Pattern;
 
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
@@ -20,8 +21,15 @@ public class RegistServlet extends HttpServlet {
 	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		ServletContext application = getServletContext();
 		
+		String regex = "\\w+";
+		
 		String id = req.getParameter("ID");
 		String pw = req.getParameter("PW");
+		
+		if(!Pattern.matches(regex, id) || !Pattern.matches(regex, pw)) {
+			resp.sendRedirect("/chap04/quiz/failed.jsp");
+			return;
+		}
 		
 		Enumeration<String> names = application.getAttributeNames();
 		
@@ -38,7 +46,9 @@ public class RegistServlet extends HttpServlet {
 			application.setAttribute(id, pw);
 			ArrayList<String> posts = new ArrayList<>();
 			
+			@SuppressWarnings("unchecked")
 			HashMap<String, ArrayList<String>> map = (HashMap<String, ArrayList<String>>) application.getAttribute("board");
+			
 			map.put(id, posts);
 		}
 		

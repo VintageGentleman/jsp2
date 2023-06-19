@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-@WebServlet("./quiz/board")
+@WebServlet("/quiz/board")
 public class BoardServlet extends HttpServlet {
 	private static final long serialVersionUID = -4686684145261559772L;
 
@@ -25,6 +25,7 @@ public class BoardServlet extends HttpServlet {
 		
 		ServletContext application = getServletContext();
 		
+		@SuppressWarnings("unchecked")
 		HashMap<String, ArrayList<String>> board = (HashMap<String, ArrayList<String>>) application.getAttribute("board");
 		ArrayList<String> posts = board.get(id);
 		
