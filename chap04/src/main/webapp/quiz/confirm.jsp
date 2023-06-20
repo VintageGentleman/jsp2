@@ -14,7 +14,7 @@
 			로그인해주세요.
 		</div>
 		<div></div>
-		<button class="btn" onclick="confirm()">확인</button>
+		<button class="btn" onclick="toIndex()">확인</button>
 	</div>
 	<script src="./function.js"></script>
 </body>

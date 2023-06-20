@@ -12,10 +12,10 @@
 <body>
 	<div id="insert">
 		<form action="./board">
-			<input type="text" name="content" placeholder="메모 입력..."/>
+			<input type="text" name="content" placeholder="메모 입력..." autocomplete="off" />
 			<input type="submit" value="입력" />
 		</form>
-		<button onclick="logout()">나가기</button>
+		<button onclick="toIndex()">나가기</button>
 	</div>
 	
 	<div id="board">

@@ -3,7 +3,7 @@ function regist() {
 	location.href = './regist.jsp';
 }
 
-function confirm() {
+function toIndex() {
 	location.href = './index.jsp';
 }
 
@@ -13,4 +13,8 @@ function failed() {
 
 function logout() {
 	location.href = './logout';
+}
+
+function toMain() {
+	location.href = './mainMenu.jsp';
 }

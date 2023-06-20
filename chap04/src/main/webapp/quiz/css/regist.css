@@ -6,7 +6,7 @@
 
 #quiz {
     width: 500px;
-    height: 300px;
+    height: 350px;
     border: 1px solid gray;
     border-radius: 10px;
     padding: 50px;
@@ -33,7 +33,7 @@
     height: 50px;
 }
 
-#regist {
+.btn {
     height: 50px;
     width: 400px;
     border-radius: 10px;
@@ -45,3 +45,6 @@
     border: 1px solid rgb(3,193,87);
 }
 
+#regist {
+    margin-bottom: 10px;
+}

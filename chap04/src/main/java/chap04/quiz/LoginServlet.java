@@ -33,7 +33,6 @@ public class LoginServlet extends HttpServlet {
 		
 		if(isValid) {
 			session.setAttribute("ID", id);
-			session.setAttribute("PW", pw);
 			resp.sendRedirect("/chap04/quiz/mainMenu.jsp");
 			return;
 		}
