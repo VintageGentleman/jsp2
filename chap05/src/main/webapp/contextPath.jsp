@@ -23,5 +23,20 @@
 	<a href="/chap05/encoding.jsp">encoding test하러 가기 (설정이 바뀌면 유효하지 않을 수도 있는 링크)</a> <br>
 	<a href="<%=request.getContextPath() %>/encoding.jsp">encoding test하러 가기 (설정이 바뀌더라도 항상 유효한 링크)</a> <br>
 	
+	<script>
+		// 자바 스크립트에서는 let을 쓰지 않으면 중괄호가 제대로 작동하지 않는 경우가 있다
+		// 변수는 {} 내부에서 사용하면 바깥쪽 변수에도 영향을 미치는데
+		// 이것을 hoist(거슬러올라간다)라고 한다
+		num = 0;
+		
+		if(true) {
+			let num = 10;
+			console.log('if문 내부(블록): ', num);
+		}
+		
+		console.log('바깥쪽(글로벌) 영역: ', num)
+		
+	</script>
+	
 </body>
 </html>
