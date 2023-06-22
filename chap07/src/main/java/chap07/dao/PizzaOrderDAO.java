@@ -22,7 +22,7 @@ public interface PizzaOrderDAO {
 	List<PizzaOrder> getCustomerOrders(String customer_id);
 	
 	// 주문 번호로 해당 주문 정보를 조회하는 메서드
-	OrderResult getOrder(String order_id);
+	OrderResult getResult(String order_id);
 	
 	// 주문 번호로 해당 주문을 취소하는 메서드
 	int deleteOrder(String order_id);
