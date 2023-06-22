@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd" id="WebApp_ID" version="4.0">
+	<servlet>
+		<servlet-name>appServlet</servlet-name>
+		<servlet-class>chap07.servlet.DispatcherServlet</servlet-class>
+	</servlet>
+	
+	<!--
+		 Eclipse의 web.xml은 서버 실행시 실제 web.xml에 추가되는 옵션들을 정의하는 곳이다.
+		 
+		 ※ 실제 web.xml은 Project Explorer 밑에 Servers에 있다
+	-->
+	<servlet-mapping>
+		<servlet-name>default</servlet-name>
+		<url-pattern>/assets/*</url-pattern>
+	</servlet-mapping>
+	
+	<servlet-mapping>
+		<servlet-name>appServlet</servlet-name>
+		<url-pattern>/</url-pattern>
+	</servlet-mapping>
+</web-app>
