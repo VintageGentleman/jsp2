@@ -27,3 +27,11 @@ CREATE SEQUENCE pizza_order_seq
 
 SELECT * FROM pizza_order;
 COMMIT;
+
+SELECT * FROM pizza_order 
+INNER JOIN pizza USING(pizza_id)
+WHERE order_id='1';
+
+SELECT order_id, customer_id, address, pizza_name, pizza_option, pizza_price FROM pizza_order 
+INNER JOIN pizza USING(pizza_id)
+WHERE order_id='1';
