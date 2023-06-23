@@ -49,8 +49,8 @@ public class PizzaOrderDAO_Impl implements PizzaOrderDAO {
 		String query = "SELECT order_id, customer_id, address, pizza_name, pizza_option, pizza_price"
 				+ " FROM pizza_order"
 				+ " INNER JOIN pizza USING(pizza_id)"
-				+ " WHERE order_id='" + order_id + "'";
-		
+				+ " WHERE order_id = ?";
+//				+ " WHERE order_id='" + order_id + "'";
 		OrderResult order = new OrderResult();
 		System.out.println("매개변수로 받은 order_id: " + order_id);
 		try(
@@ -58,10 +58,19 @@ public class PizzaOrderDAO_Impl implements PizzaOrderDAO {
 			PreparedStatement pstmt = conn.prepareStatement(query);
 		) {
 			System.out.println("try문 내부: " + order_id);
-//			pstmt.setString(1, order_id);
+//			pstmt.setString(1, order_id.trim());
+			pstmt.setInt(1, Integer.parseInt(order_id));
+			
 			try(
 				ResultSet rs = pstmt.executeQuery(); 
 			) {
+//				System.out.println(rs.next());
+//				order.setOrder_id(order_id);
+//				order.setCustomer_id(rs.getString("customer_id"));
+//				order.setAddress(rs.getString("address"));
+//				order.setPizza_name(rs.getString("pizza_name"));
+//				order.setPizza_option(rs.getInt("pizza_option"));
+//				order.setPizza_price(rs.getInt("pizza_price"));
 				while(rs.next()) {
 					System.out.println("조회성공");
 					order.setOrder_id(order_id);
@@ -71,7 +80,6 @@ public class PizzaOrderDAO_Impl implements PizzaOrderDAO {
 					order.setPizza_option(rs.getInt("pizza_option"));
 					order.setPizza_price(rs.getInt("pizza_price"));
 				}
-			
 			}
 				
 		} catch (SQLException e) {
