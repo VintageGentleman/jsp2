@@ -40,7 +40,6 @@ public class PizzaOrderDAO_Impl implements PizzaOrderDAO {
 	
 	@Override
 	public List<PizzaOrder> getCustomerOrders(String customer_id) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
@@ -91,7 +90,6 @@ public class PizzaOrderDAO_Impl implements PizzaOrderDAO {
 
 	@Override
 	public int deleteOrder(String order_id) {
-		// TODO Auto-generated method stub
 		return 0;
 	}
 

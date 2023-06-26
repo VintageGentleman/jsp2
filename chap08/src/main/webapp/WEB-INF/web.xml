@@ -9,4 +9,15 @@
 		<servlet-name>appServlet</servlet-name>
 		<url-pattern>/pizza/order/all</url-pattern>
 	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>pizzaOrderServlet</servlet-name>
+		<servlet-class>chap08.servlet.PizzaOrderServlet</servlet-class>
+	</servlet>
+	
+	<servlet-mapping>
+		<servlet-name>pizzaOrderServlet</servlet-name>
+		<url-pattern>/pizza/order/all_t</url-pattern>
+	</servlet-mapping>
+	
 </web-app>
