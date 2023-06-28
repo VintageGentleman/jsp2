@@ -97,8 +97,6 @@ public class CommentDAO {
 					com.setCom_id(rs.getInt("com_id"));
 					com.setCom_content(rs.getString("com_content"));
 					com.setCom_writer(rs.getString("com_writer"));
-
-					System.out.println(rs.getInt("com_id"));
 					
 					list.add(com);
 				}
@@ -108,6 +106,53 @@ public class CommentDAO {
 		} catch (SQLException e) {
 			e.printStackTrace();
 			return null;
+		}
+	}
+
+	public Comment selectComment(int com_id) {
+		String query = "SELECT com_content, com_writer, post_id FROM board_comment WHERE com_id=?";
+		
+		try(
+			Connection conn = DBConnection.getConnection();
+			PreparedStatement pstmt = conn.prepareStatement(query);
+		) {
+			pstmt.setInt(1, com_id);
+			
+			try(
+				ResultSet rs = pstmt.executeQuery();
+			) {
+				rs.next();
+				
+				Comment com = new Comment(); 
+				
+				com.setCom_id(com_id);
+				com.setCom_content(rs.getString("com_content"));
+				com.setCom_writer(rs.getString("com_writer"));
+				com.setPost_id(rs.getInt("post_id"));
+				
+				return com;
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return null;
+		}
+	}
+
+	public int updatePost(Comment com) {
+		String query = "UPDATE board_comment SET com_content=? WHERE com_id=?";
+		
+		try(
+			Connection conn = DBConnection.getConnection();
+			PreparedStatement pstmt = conn.prepareStatement(query);
+		) {
+			pstmt.setString(1, com.getCom_content());
+			pstmt.setInt(2, com.getCom_id());
+			
+			return pstmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return 0;
 		}
 	}
 	

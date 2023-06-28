@@ -46,17 +46,17 @@
 			<jsp:include page="./list/comment_list.jsp"/>
 			<div id="comment-insert">
 				<div>
-					<input name="com_writer" class="com-text" placeholder="아이디입력" form="commentWrite" type="text"/>
+					<input name="com_writer" class="com-text" placeholder="아이디입력" form="commentWrite" type="text" required/>
 				</div>
 				<div>
-					<input name="com_content" id="com-content" placeholder="댓글입력" form="commentWrite" type="text"/>
+					<textarea name="com_content" id="com-content" placeholder="댓글입력" form="commentWrite" required></textarea>
 				</div>
 				<div>
-					<input name="com_password" class="com-text" placeholder="비밀번호입력" form="commentWrite" type="password"/>
+					<input name="com_password" class="com-text" placeholder="비밀번호입력" form="commentWrite" type="password" required/>
 				</div>
 				<div></div>
 				<div>
-					<button form="commentWrite" type="submit">등록</button>
+					<button class="btn" form="commentWrite" type="submit">등록</button>
 				</div>
 			</div>
 		</div>	

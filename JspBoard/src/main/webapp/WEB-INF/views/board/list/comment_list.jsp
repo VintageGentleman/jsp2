@@ -9,13 +9,15 @@
 			<div>${com.com_writer}</div>
 			<div>${com.com_content}</div>
 			<div>
-				<form id="com_update_form" action="./commentUpdate" method="POST">
-					<button type="submit" form="com_update_form">수정</button>
-					<input form="com_update_form" type="hidden" name="com_id" value="${com.com_id}"/>
+				<form id="com_update_form" action="./commentUpdateChk" method="POST">
+					<button type="submit">수정</button>
+					<input type="hidden" name="com_id" value="${com.com_id}"/>
+					<input type="hidden" name="post_id" value="${post.post_id}"/>
 				</form>
 				<form action="./commentDelete" method="POST">
 					<button type="submit">삭제</button>
 					<input type="hidden" name="com_id" value="${com.com_id}"/>
+					<input type="hidden" name="post_id" value="${post.post_id}"/>
 				</form>
 			</div>
 		</div>

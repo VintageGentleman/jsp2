@@ -73,31 +73,38 @@ public class PostDAO {
 		
 	}
 	
-	public List<Post> selectPostList() {
+	public List<Post> selectPostList(int page) {
 		
-		String query = "SELECT post_id, post_title, post_writer, view_count"
-				+ " FROM post"
-				+ " ORDER BY post_id DESC";
+		String query = "SELECT *"
+				+ " FROM (SELECT ROWNUM AS rn, post_id, post_title, post_writer, view_count"
+				+ "		  FROM post ORDER BY post_id DESC)"
+				+ " WHERE rn BETWEEN ? AND ?";
 		
 		List<Post> postList = new ArrayList<>();
 		
 		try(
 			Connection conn = DBConnection.getConnection();
 			PreparedStatement pstmt = conn.prepareStatement(query);
-			ResultSet rs = pstmt.executeQuery()
 		) {
-			while(rs.next()) {
-				Post post = new Post();
-				
-				post.setPost_id(rs.getInt("post_id"));
-				post.setPost_title(rs.getString("post_title"));
-				post.setPost_writer(rs.getString("post_writer"));
-				post.setView_count(rs.getInt("view_count"));
-				
-				postList.add(post);
-			}
+			pstmt.setInt(1, (page - 1) * 10 + 1);
+			pstmt.setInt(2, page * 10);
 			
-			return postList;
+			try(
+				ResultSet rs = pstmt.executeQuery();
+			) {
+				while(rs.next()) {
+					Post post = new Post();
+					
+					post.setPost_id(rs.getInt("post_id"));
+					post.setPost_title(rs.getString("post_title"));
+					post.setPost_writer(rs.getString("post_writer"));
+					post.setView_count(rs.getInt("view_count"));
+					
+					postList.add(post);
+				}
+				
+				return postList;
+			}
 		} catch (SQLException e) {
 			e.printStackTrace();
 			return null;
@@ -155,6 +162,38 @@ public class PostDAO {
 			return 0;
 		}
 		
+	}
+	
+	public int getTotalPostCount() {
+		String query = "SELECT count(*) FROM post";
+		
+		try(
+			Connection conn = DBConnection.getConnection();
+			PreparedStatement pstmt = conn.prepareStatement(query);
+			ResultSet rs = pstmt.executeQuery();
+		) {
+			rs.next();
+			
+			return rs.getInt(1);
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return 0;
+		}
+	}
+
+	public void updateView_count(Post post) {
+		String query = "UPDATE post SET view_count = view_count + 1 WHERE post_id = ?";
+		
+		try(
+			Connection conn = DBConnection.getConnection();
+			PreparedStatement pstmt = conn.prepareStatement(query);
+		) {
+			pstmt.setInt(1, post.getPost_id());
+			
+			pstmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 	}
 	
 }

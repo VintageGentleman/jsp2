@@ -6,8 +6,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import jspboard.dao.CommentDAO;
+import jspboard.model.Comment;
 
-public class DeleteCommentBusinessLogic implements BusinessLogic {
+public class UpdateChkCommentBusinessLogic implements BusinessLogic {
 
 	@Override
 	public String process(HttpServletRequest request, HttpServletResponse response) throws IOException {
@@ -15,17 +16,21 @@ public class DeleteCommentBusinessLogic implements BusinessLogic {
 		int com_id = Integer.parseInt(request.getParameter("com_id")); 
 		
 		if(pwd == null || pwd.equals("")) {
-			return "/board/commentDelete_chk";
+			return "/board/commentUpdate_chk";
 		}
 		
 		CommentDAO dao = new CommentDAO();
 		
 		if(pwd.equals(dao.getPassword(com_id))) {
-			dao.deleteComment(com_id);
-			return "redirect:" + request.getContextPath() + "/postDetail?post_id=" + request.getParameter("post_id");
+			Comment com = dao.selectComment(com_id);
+			
+			request.setAttribute("comment", com);
+			
+			return "/board/commentUpdate";
 		} else {
-			return "/board/commentDelete_chk";
+			return "/board/commentUpdate_chk";
 		}
+		
 	}
 
 }

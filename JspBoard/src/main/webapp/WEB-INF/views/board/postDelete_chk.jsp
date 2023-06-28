@@ -8,7 +8,7 @@
 </head>
 <body>
 	<form action="./postDelete" method="POST">
-		비밀번호 입력 : <input name="pwd" type="password"/>
+		비밀번호 입력 : <input name="pwd" type="password" required/>
 		<input type="hidden" name="post_id" value=<%=request.getParameter("post_id")%>>
 	</form>
 </body>

@@ -33,6 +33,7 @@ CREATE TABLE board_comment (
     post_id NUMBER(10) 
         CONSTRAINT post_id_fk REFERENCES post(post_id) ON DELETE CASCADE
 );
+SELECT * FROM board_comment;
 
 INSERT INTO board_comment(com_id, com_content, com_writer, com_password, post_id) 
 VALUES(com_id_seq.nextval, '¿¬½À', 'manager', '1234', 1);

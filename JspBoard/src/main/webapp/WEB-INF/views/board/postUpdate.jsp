@@ -22,7 +22,7 @@
 		</div>
 		<div>
 			<span>내용:</span><br>
-			<input id="content" type="text" name="post_content" value="${post.post_content}" form="post_form" />
+			<textarea name="post_content" id="content" form="post_form">${post.post_content}</textarea>
 		</div>
 		<div>
 			<button class="btn" type="submit" form="post_form">수정하기</button>

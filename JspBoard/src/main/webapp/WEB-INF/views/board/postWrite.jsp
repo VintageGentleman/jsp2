@@ -15,7 +15,7 @@
 			<input type="text" name="post_writer" form="post_form"/>
 		</div>
 		<div>
-			<span> 비밀번호:</span><br>
+			<span>비밀번호:</span><br>
 			<input type="password" name="post_password" form="post_form" />
 		</div>
 		<div>
@@ -24,7 +24,7 @@
 		</div>
 		<div>
 			<span>내용:</span><br>
-			<input id="content" type="text" name="post_content" form="post_form" />
+			<textarea name="post_content" id="content" form="post_form"></textarea>
 		</div>
 		<div>
 			<button class="btn" type="submit" form="post_form">글쓰기</button>

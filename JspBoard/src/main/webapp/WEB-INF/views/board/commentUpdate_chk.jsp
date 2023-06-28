@@ -7,8 +7,9 @@
 	<title>비밀번호 확인</title>
 </head>
 <body>
-	<form action="./postUpdateChk" method="POST">
-		비밀번호 입력 : <input name="pwd" type="password" required/>
+	<form action="./commentUpdateChk" method="POST">
+		비밀번호 입력 : <input name="pwd" type="password" required /> 
+		<input type="hidden" name="com_id" value=<%=request.getParameter("com_id")%>>
 		<input type="hidden" name="post_id" value=<%=request.getParameter("post_id")%>>
 	</form>
 </body>

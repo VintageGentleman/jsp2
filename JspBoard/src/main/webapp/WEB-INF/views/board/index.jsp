@@ -13,7 +13,7 @@
 		<button onclick="movePostWrite()">¾²±â</button>
 	</div>
 	<jsp:include page="./list/post_list.jsp" />
-	
+	<jsp:include page="./list/page_list.jsp" />
 	
 	<script src="<%=request.getContextPath()%>/assets/js/BasicFunction.js"></script>
 </body>

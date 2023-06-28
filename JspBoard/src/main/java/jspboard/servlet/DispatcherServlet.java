@@ -19,6 +19,8 @@ import jspboard.process.InsertPostBusinessLogic;
 import jspboard.process.PostDetailBusinessLogic;
 import jspboard.process.PostWriteBusinessLogic;
 import jspboard.process.UpdateChkPostBusinessLogic;
+import jspboard.process.UpdateCommentBusinessLogic;
+import jspboard.process.UpdateChkCommentBusinessLogic;
 import jspboard.process.UpdatePostBusinessLogic;
 
 public class DispatcherServlet extends HttpServlet {
@@ -54,6 +56,7 @@ public class DispatcherServlet extends HttpServlet {
 		String contextPath = config.getServletContext().getContextPath();
 		
 		processMapping.put(contextPath + "/home::GET", new BoardHomeBusinessLogic());
+		
 		processMapping.put(contextPath + "/postWrite::GET", new PostWriteBusinessLogic());
 		processMapping.put(contextPath + "/postWrite::POST", new InsertPostBusinessLogic());
 		processMapping.put(contextPath + "/postUpdateChk::POST", new UpdateChkPostBusinessLogic());
@@ -62,8 +65,8 @@ public class DispatcherServlet extends HttpServlet {
 		processMapping.put(contextPath + "/postDetail::GET", new PostDetailBusinessLogic());
 		
 		processMapping.put(contextPath + "/commentWrite::POST", new InsertCommentBusinessLogic());
-		processMapping.put(contextPath + "/commentUpdateChk::POST", new InsertCommentBusinessLogic());
-		processMapping.put(contextPath + "/commentUpdate::POST", new InsertCommentBusinessLogic());
+		processMapping.put(contextPath + "/commentUpdateChk::POST", new UpdateChkCommentBusinessLogic());
+		processMapping.put(contextPath + "/commentUpdate::POST", new UpdateCommentBusinessLogic());
 		processMapping.put(contextPath + "/commentDelete::POST", new DeleteCommentBusinessLogic());
 	}
 	

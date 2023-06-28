@@ -42,3 +42,9 @@
 	text-align: center;
 	width: 10%;
 }
+
+#pageDiv {
+	margin-top: 30px;
+	text-align: center;
+	width: 800px;
+}

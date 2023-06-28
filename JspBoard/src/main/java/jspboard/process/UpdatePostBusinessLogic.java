@@ -15,9 +15,11 @@ public class UpdatePostBusinessLogic implements BusinessLogic {
 		
 		String contextPath = request.getContextPath();
 		
+		int post_id = Integer.parseInt(request.getParameter("post_id"));
+		
 		Post post = new Post();
 		
-		post.setPost_id(Integer.parseInt(request.getParameter("post_id")));
+		post.setPost_id(post_id);
 		post.setPost_title(request.getParameter("post_title"));
 		post.setPost_content(request.getParameter("post_content"));
 		
@@ -26,9 +28,9 @@ public class UpdatePostBusinessLogic implements BusinessLogic {
 		int result = dao.updatePost(post);
 		
 		if(result == 1) {
-			return "redirect:" + contextPath + "/home";
+			return "redirect:" + contextPath + "/postDetail?post_id=" + post_id;
 		} else {
-			return "redirect:" + contextPath + "/postWrite";
+			return "redirect:" + contextPath + "/home";
 		}
 		
 	}
