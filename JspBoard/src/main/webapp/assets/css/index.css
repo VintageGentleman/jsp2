@@ -1,0 +1,44 @@
+@charset "EUC-KR";
+
+* {
+	box-sizing: border-box;
+}
+#header {
+	margin-bottom: 30px;
+}
+
+#post_list {
+	border-top: 1px solid black;
+	border-left: 1px solid black;
+	width: 800px;
+}
+
+#post_list > div:first-child > div {
+	text-align: center;
+	font-weight: bold;
+}
+
+.listItem {
+	display: flex;
+	flex-direction: row;
+	width: 800px;
+}
+.listItem > div {
+	border-bottom: 1px solid black;
+	border-right: 1px solid black;
+}
+.listItem > div:first-child {
+	text-align: center;
+	width: 10%;
+}
+.listItem > div:nth-child(2) {
+	width: 60%;
+}	
+.listItem > div:nth-child(3) {
+	text-align: center;
+	width: 20%;
+}
+.listItem > div:last-child {
+	text-align: center;
+	width: 10%;
+}
