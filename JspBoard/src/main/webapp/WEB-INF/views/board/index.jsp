@@ -1,20 +1,24 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<c:url value="/assets/css" var="css"/>
+<c:url value="/assets/js" var="js"/>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
 	<meta charset="EUC-KR">
 	<title>게시판 홈</title>
-	<link rel="stylesheet" href="<%=request.getContextPath()%>/assets/css/index.css">
+	<link rel="stylesheet" href="${css}/font.css">
+	<link rel="stylesheet" href="${css}/index.css">
 </head>
 <body>
-	<h2>게시판</h2>
+	<h1>게시판</h1>
 	<div id="header">
-		<button onclick="movePostWrite()">쓰기</button>
+		<button class="btn btn-header" onclick="movePostWrite()">글쓰기</button>
 	</div>
 	<jsp:include page="./list/post_list.jsp" />
 	<jsp:include page="./list/page_list.jsp" />
 	
-	<script src="<%=request.getContextPath()%>/assets/js/BasicFunction.js"></script>
+	<script src="${js}/BasicFunction.js"></script>
 </body>
 </html>

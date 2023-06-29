@@ -1,11 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<c:url value="/assets/css" var="css"/>
 <!DOCTYPE html>
 <html>
 <head>
 	<meta charset="EUC-KR">
 	<title>포스트</title>
-	<link rel="stylesheet" href="<%=request.getContextPath()%>/assets/css/postContent.css">
+	<link rel="stylesheet" href="${css}/font.css">
+	<link rel="stylesheet" href="${css}/postContent.css">
 </head>
 <body>
 	<form id="updateForm" action="./postUpdateChk" method="POST">
@@ -18,9 +21,9 @@
 		<div id="option">
 			<div></div>
 			<div></div>
-			<div><button class="btn" onclick="moveHome()">목록</button></div>
-			<div><button class="btn" type="submit" form="updateForm">수정</button></div>
-			<div><button class="btn" type="submit" form="deleteForm">삭제</button></div>
+			<div><button class="btn btn-header" onclick="moveHome()">목록</button></div>
+			<div><button class="btn btn-header" type="submit" form="updateForm">수정</button></div>
+			<div><button class="btn btn-header" type="submit" form="deleteForm">삭제</button></div>
 		</div>
 		<div id="header">
 			<div>
@@ -56,7 +59,7 @@
 				</div>
 				<div></div>
 				<div>
-					<button class="btn" form="commentWrite" type="submit">등록</button>
+					<button class="btn btn-header" form="commentWrite" type="submit">등록</button>
 				</div>
 			</div>
 		</div>	

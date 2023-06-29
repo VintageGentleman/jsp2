@@ -75,9 +75,9 @@ public class PostDAO {
 	
 	public List<Post> selectPostList(int page) {
 		
-		String query = "SELECT *"
-				+ " FROM (SELECT ROWNUM AS rn, post_id, post_title, post_writer, view_count"
-				+ "		  FROM post ORDER BY post_id DESC)"
+		String query = "SELECT * FROM"
+				+ " (SELECT ROWNUM AS rn, b.* FROM"
+				+ " (SELECT post_id, post_title, post_writer, view_count FROM post ORDER BY post_id DESC) b)"
 				+ " WHERE rn BETWEEN ? AND ?";
 		
 		List<Post> postList = new ArrayList<>();

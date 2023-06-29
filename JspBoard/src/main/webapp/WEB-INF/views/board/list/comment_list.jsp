@@ -10,12 +10,12 @@
 			<div>${com.com_content}</div>
 			<div>
 				<form id="com_update_form" action="./commentUpdateChk" method="POST">
-					<button type="submit">수정</button>
+					<button class="btn" type="submit">수정</button>
 					<input type="hidden" name="com_id" value="${com.com_id}"/>
 					<input type="hidden" name="post_id" value="${post.post_id}"/>
 				</form>
 				<form action="./commentDelete" method="POST">
-					<button type="submit">삭제</button>
+					<button class="btn" type="submit">삭제</button>
 					<input type="hidden" name="com_id" value="${com.com_id}"/>
 					<input type="hidden" name="post_id" value="${post.post_id}"/>
 				</form>

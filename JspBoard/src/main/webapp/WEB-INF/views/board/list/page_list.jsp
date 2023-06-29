@@ -6,21 +6,28 @@
 <div id="pageDiv">
 	<c:choose>
 		<c:when test="${prePage >= paging.firstPage}">
-			<button onclick="location.href='./home?page=${prePage}'">&lt;</button> 
+			<button class="btn" onclick="location.href='./home?page=${prePage}'">&lt;</button> 
 		</c:when>
 		<c:otherwise>
-			<button disabled>&lt;</button> 
+			<button class="btn disabled" disabled>&lt;</button> 
 		</c:otherwise>
 	</c:choose>		
 	<c:forEach items="${paging.pageList}" var="pageNum">
-		<button onclick="location.href='./home?page=${pageNum}'">${pageNum}</button>
+		<c:choose>
+			<c:when test="${pageNum == paging.currPage}">
+				<button id="currBtn" class="btn" onclick="location.href='./home?page=${prePage}'">${pageNum}</button> 
+			</c:when>
+			<c:otherwise>
+				<button class="btn" onclick="location.href='./home?page=${pageNum}'">${pageNum}</button>
+			</c:otherwise>
+		</c:choose>		
 	</c:forEach>
 	<c:choose>
 		<c:when test="${nextPage <= paging.lastPage}">
-			<button onclick="location.href='./home?page=${nextPage}'">&gt;</button>
+			<button class="btn" onclick="location.href='./home?page=${nextPage}'">&gt;</button>
 		</c:when>
 		<c:otherwise>
-			<button disabled>&gt;</button> 
+			<button class="btn disabled" disabled>&gt;</button> 
 		</c:otherwise>
 	</c:choose>
 </div>
