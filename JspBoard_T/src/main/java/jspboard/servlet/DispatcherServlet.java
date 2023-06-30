@@ -10,9 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import jspboard.service.BoardListService;
-import jspboard.service.BoardModifyService;
-import jspboard.service.Service;
+import jspboard.service.*;
 
 public class DispatcherServlet extends HttpServlet {
 	private static final long serialVersionUID = 2679528535844379418L;
@@ -42,12 +40,16 @@ public class DispatcherServlet extends HttpServlet {
 
 	private Map<String, Service> serviceMapping = new HashMap<>();
 	
+	String contextPath;
+	
 	@Override
 	public void init(ServletConfig config) throws ServletException {
-		String contextPath = config.getServletContext().getContextPath();
+		contextPath = config.getServletContext().getContextPath();
 		
 		serviceMapping.put(contextPath + "/board/list::GET", new BoardListService());
+		serviceMapping.put(contextPath + "/board/detail::GET", new BoardDetailService());
 		serviceMapping.put(contextPath + "/board/modify::GET", new BoardModifyService());
+		serviceMapping.put(contextPath + "/board/modify::POST", new BoardUpdateService());
 	}
 	
 	@Override
@@ -59,7 +61,7 @@ public class DispatcherServlet extends HttpServlet {
 					.service(request, response);
 				
 			if(nextPage.startsWith("redirect:")) {
-				response.sendRedirect(nextPage.substring("redirect:".length()));
+				response.sendRedirect(contextPath + nextPage.substring("redirect:".length()));
 			} else {
 				request.getRequestDispatcher("/WEB-INF/views" + nextPage + ".jsp").forward(request, response);
 			}

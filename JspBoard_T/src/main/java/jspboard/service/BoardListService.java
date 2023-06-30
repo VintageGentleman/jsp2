@@ -24,7 +24,7 @@ public class BoardListService implements Service {
 			page = 1;
 		}
 		
-		Pagination pagination = new Pagination(page, 10);
+		Pagination pagination = new Pagination(page, 10, boardDAO.getBoardCount());
 		
 		// page -> SELECT * FROM board WHERE board_id BETWEEN A AND B;
 		request.setAttribute("boards", boardDAO.getPage(pagination));

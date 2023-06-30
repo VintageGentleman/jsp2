@@ -1,7 +1,19 @@
 
 const modifyBtns = document.querySelectorAll('.modify-btn');
+const boardTitles = document.querySelectorAll('.board-title');
+const pageBtns = document.getElementsByClassName('page-btn');
 
-console.log('btns:', modifyBtns.length);
+for(let i = 0; i < pageBtns.length; ++i) {
+	pageBtns[i].addEventListener('click', (e) => {
+		location.href = `./list?page=${e.target.dataset.page}`;
+	});	
+};
+
+for(let i = 0; i < boardTitles.length; ++i) {
+	boardTitles[i].addEventListener('click', (e) => {
+		location.href = `./detail?id=${e.target.dataset.id}`;
+	})
+}
 
 for(let i = 0; i < modifyBtns.length; ++i) {
 	modifyBtns[i].addEventListener('click', (e) => {
@@ -15,3 +27,4 @@ for(let i = 0; i < modifyBtns.length; ++i) {
 		location.href = `./modify?id=${e.target.dataset.num}`;
 	});
 }
+
